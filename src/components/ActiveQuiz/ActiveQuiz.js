@@ -3,6 +3,7 @@ import c from './ActiveQuiz.module.css';
 import AnswersList from "./AnswersList/AnswersList";
 
 const ActiveQuiz = (props) => {
+
     return (
         <div className={c.activeQuiz}>
            <p className={c.question}>
@@ -14,6 +15,7 @@ const ActiveQuiz = (props) => {
            </p>
 
             <AnswersList
+                answerState={props.answerState}
                 answers={props.answers}
                 onAnswerClickHandler={props.onAnswerClickHandler}
             />
