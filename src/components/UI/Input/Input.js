@@ -1,14 +1,14 @@
 import React from "react";
 import c from "./Input.module.css";
 
-function isIvalid({valid, touched, shouldValidate}) {
-  return !valid && shouldValidate && touched
+function isInvalid({valid, touched, shouldValidate}) {
+  return  !valid && shouldValidate && touched;
 }
 const Input = (props) => {
     const inputType = props.type || 'text';
     const cls = [c.input];
     const htmlFor = `${inputType}-${Math.random()}`;
-    if (isIvalid(props)) {
+    if (isInvalid(props)) {
         cls.push(c.invalid);
     }
     return (
@@ -21,7 +21,7 @@ const Input = (props) => {
                 onChange={props.onChange}
             />
             {
-                isIvalid(props) && <span>{props.errorMessage || 'Введите верное значение'}</span>
+                isInvalid(props) && <span>{props.errorMessage || 'Введите верное значение'}</span>
             }
 
         </div>
